@@ -1,0 +1,45 @@
+{{> header-user}}
+<div class="container">
+    {{#if products}}
+        <div class="row">
+            <div class="col s10 m6 offset-s1 offset-m3">
+                <ul class="collection with-header">
+                    <li class="collection-header"><h4>Items</h4></li>
+                    {{#each products}}
+                        <li class="collection-item">
+                            <section style="margin-bottom: 45px">
+                                <span class="badge">{{this.quantity}}</span>
+                                <span><strong>{{this.item.title}}</strong></span>
+                                <span class="label label-success">${{this.price}}</span>
+                                <!-- Dropdown Structure -->
+                                <ul id="dropdown-remove-{{this.item._id}}" class="dropdown-content">
+                                    <li><a href="/reduce/{{this.item._id}}">Reduce by 1</a></li>
+                                    <li><a href="/remove/{{this.item._id}}">Remove all</a></li>
+                                </ul>
+                                <!-- Dropdown Trigger -->
+                                <a class="dropdown-button btn-floating btn-small waves-effect waves-light" href="#!" data-activates="dropdown-remove-{{this.item._id}}"><i class="material-icons">remove</i></a>
+                            </section>
+                        </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s10 m6 offset-s1 offset-m3">
+                <strong>Total: ${{totalPrice}}</strong>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col s10 m6 offset-s1 offset-m3 center-align">
+                <a href="/checkout" type="button" class="btn btn-success">Checkout</a>
+            </div>
+        </div>
+    {{else}}
+        <div class="row">
+            <div class="col s10 m6 offset-s1 offset-m3">
+                <h2>No Items in Cart</h2>
+            </div>
+        </div>
+    {{/if}}
+</div>

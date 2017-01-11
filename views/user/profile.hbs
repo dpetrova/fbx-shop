@@ -1,0 +1,27 @@
+{{> header-user}}
+<div class="container">
+    <div class="row">
+        <div class="col s10 m8 offset-s1 offset-m2">
+            <h3>User Profile</h3>
+            <hr>
+            <h5>My Orders</h5>
+            {{#each orders}}
+                <div class="card darken-1">
+                    <div class="card-content">
+                        <ul class="collection">
+                            {{#each this.items}}
+                                <li class="collection-item">
+                                    <span class="badge">{{this.price}}</span>
+                                    <strong>{{this.item.title}}</strong> | {{this.quantity}} Units
+                                </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                    <div class="card-action">
+                        <strong>Total Price: ${{this.cart.totalPrice}}</strong>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

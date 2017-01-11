@@ -1,0 +1,78 @@
+{{> header-shop}}
+<section id="game">
+    <div class="container">
+        <div class="row">
+            <div class="col s6 m4 offset-m4 offset-s3 text-center">
+                <div id="success" class="teal-text" {{#if noMessages}}hidden{{/if}}>
+                    {{successMsg}}
+                </div>
+            </div>
+        </div>
+        {{#each game}}
+            <div class="row">
+                {{#each this}}
+                    <div class="col s6 m4">
+                        <div class="card center-align">
+                            <div>
+                                <img src="{{this.imagePath}}" alt="{{this.title}}" class="responsive-img materialboxed">
+                            </div>
+                            <div class="card-content">
+                                <div><span class="card-title activator grey-text text-darken-4"><strong>{{this.title}}</strong><i class="material-icons right">more_vert</i></span></div>
+                                <div class="col s6 left-align"><span class="rating" title="5.0 stars of 5"><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></span></div>
+                                <div class="col s6 price right-align"><span>${{this.price}}</span></div>
+                                <a href="/add-to-cart/{{this._id}}" class="waves-effect waves-light btn">Add to Shopping Cart</a>
+                            </div>
+                            <div class="card-reveal">
+                                <span class="card-title grey-text text-darken-4">{{this.title}}<i class="material-icons right">close</i></span>
+                                <p class="description">{{this.description}}</p>
+                                <div class="left-align">Polygons: {{this.faces}}</div>
+                                <div class="left-align">Added on: {{prettifyDate this.date}}</div>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        {{/each}}
+    </div>
+</section>
+<div class="divider"></div>
+<section id="movie">
+    <div class="container">
+        <div class="row">
+            <div class="col s6 m4 offset-m4 offset-s3">
+                <div id="success" class="alert alert-success" {{#if noMessages}}hidden{{/if}}>
+                    {{successMsg}}
+                </div>
+            </div>
+        </div>
+        {{#each movie}}
+            <div class="row">
+                {{#each this}}
+                    <div class="col s6 m4">
+                        <div class="card center-align">
+                            <div>
+                                <img src="{{this.imagePath}}" alt="{{this.title}}" class="responsive-img materialboxed">
+                            </div>
+                            <div class="card-content">
+                                <div><span class="card-title activator grey-text text-darken-4"><strong>{{this.title}}</strong><i class="material-icons right">more_vert</i></span></div>
+                                <div class="col s6 left-align"><span class="rating" title="5.0 stars of 5"><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></span></div>
+                                <div class="col s6 price right-align"><span>${{this.price}}</span></div>
+                                <a href="/add-to-cart/{{this._id}}" class="waves-effect waves-light btn">Add to Shopping Cart</a>
+                            </div>
+                            <div class="card-reveal">
+                                <span class="card-title grey-text text-darken-4">{{this.title}}<i class="material-icons right">close</i></span>
+                                <p class="description">{{this.description}}</p>
+                                <div class="left-align">Polygons: {{this.faces}}</div>
+                                <div class="left-align">Added on: {{prettifyDate this.date}}</div>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        {{/each}}
+    </div>
+</section>
+
+
+
+

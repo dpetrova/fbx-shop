@@ -1,0 +1,38 @@
+{{> header-user}}
+<div class="container">
+    <div class="row">
+        <div class="col s12 m4 offset-m4">
+            <h3>Sign In</h3>
+            {{#if hasErrors}}
+                <div class="red-text">
+                    {{#each messages}}
+                        <p>{{this}}</p>
+                    {{/each}}
+                </div>
+            {{/if}}
+        </div>
+    </div>
+    <div class="row">
+        <form class="col s12 m4 offset-m4" action="/user/signin" method="post">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="email" type="email" class="validate" name="email">
+                    <label for="email">Email</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="pass" type="password" class="validate" name="pass">
+                    <label for="pass">Password</label>
+                </div>
+            </div>
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+            <button type="submit" class="waves-effect waves-light btn">Sign In</button>
+        </form>
+    </div>
+    <div class="row">
+        <div class="col s12 m4 offset-m4">
+        <p>Don't have an account? <a href="/user/signup">Sign up instead!</a></p>
+        </div>
+    </div>
+</div>

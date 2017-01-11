@@ -1,0 +1,37 @@
+<nav class="brown" role="navigation">
+    <div class="nav-wrapper container">
+        <a id="logo-container" href="/" class="brand-logo center">FbxShop</a>
+        <ul class="left hide-on-med-and-down">
+            <li><a href="/models">models</a></li>
+        </ul>
+        <ul class="right hide-on-med-and-down">
+            <!-- Dropdown Structure -->
+            <ul id="dropdown1" class="dropdown-content">
+                {{#if login}}
+                    <li><a href="/user/profile">user account</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/user/logout">logout</a></li>
+                {{else}}
+                    <li><a href="/user/signup">sign up</a></li>
+                    <li><a href="/user/signin">sign in</a></li>
+                {{/if}}
+            </ul>
+            <!-- Dropdown Trigger -->
+            <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="fa fa-user" aria-hidden="true"></i> user management<i class="material-icons right">arrow_drop_down</i></a></li>
+        </ul>
+        <!-- Mobile menu Trigger-->
+        <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+        <!-- Mobile menu -->
+        <ul class="side-nav" id="mobile-menu">
+            <li><a href="/models">models</a></li>
+            {{#if login}}
+                <li><a href="/user/profile">user account</a></li>
+                <li class="divider"></li>
+                <li><a href="/user/logout">logout</a></li>
+            {{else}}
+                <li><a href="/user/signup">sign up</a></li>
+                <li><a href="/user/signin">sign in</a></li>
+            {{/if}}
+        </ul>
+    </div>
+</nav>
